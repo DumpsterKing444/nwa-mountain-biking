@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWA Mountain Biking</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #3b2415;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("images/5ca8c717677e3fd8daa4e8008a3a153f.jpg")
+        center/cover no-repeat;
+
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      color: #ccc;
+    }
+
+    /* =========================
+       BULLETIN BOARD
+    ========================== */
+
+    .board {
+      position: relative;
+      width: 100%;
+      min-height: 1000px;
+      padding: 50px;
+
+      background-image: url("images/8622d8bdef881463048ae7b3370c32d1.jpg");
+      background-repeat: repeat;
+      background-size: auto;
+
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.45);
+    }
+
+    /* =========================
+       PHOTO CARDS
+    ========================== */
+
+    .post {
+      position: absolute;
+      width: 220px;
+      padding: 10px;
+
+      background: #f5f0df;
+
+      box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.4);
+
+      transition: transform 0.2s ease;
+      cursor: pointer;
+
+      /* Makes the <a> look like the original cards */
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .post:hover {
+      transform: scale(1.08) rotate(0deg);
+      z-index: 20;
+    }
+
+    .post img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 10px 5px 4px;
+      font-size: 14px;
+      line-height: 1.3;
+      color: #333;
+    }
+
+    /* =========================
+       PUSH PIN
+    ========================== */
+
+    .pin {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+
+      background: #c62828;
+      border-radius: 50%;
+
+      top: -9px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* =========================
+       POSTS 1-5
+    ========================== */
+
+    .post1 {
+      top: 70px;
+      left: 7%;
+      transform: rotate(-4deg);
+    }
+
+    .post2 {
+      top: 100px;
+      left: 30%;
+      transform: rotate(3deg);
+    }
+
+    .post3 {
+      top: 60px;
+      right: 7%;
+      transform: rotate(-2deg);
+    }
+
+    .post4 {
+      top: 360px;
+      left: 15%;
+      transform: rotate(2deg);
+    }
+
+    .post5 {
+      top: 340px;
+      right: 15%;
+      transform: rotate(-5deg);
+    }
+
+    /* =========================
+       POSTS 6-10
+    ========================== */
+
+    .post6 {
+      top: 390px;
+      left: 42%;
+      transform: rotate(-3deg);
+    }
+
+    .post7 {
+      top: 650px;
+      left: 5%;
+      transform: rotate(4deg);
+    }
+
+    .post8 {
+      top: 630px;
+      left: 29%;
+      transform: rotate(-2deg);
+    }
+
+    .post9 {
+      top: 660px;
+      right: 28%;
+      transform: rotate(3deg);
+    }
+
+    .post10 {
+      top: 620px;
+      right: 5%;
+      transform: rotate(-4deg);
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 700px) {
+
+      .board {
+        min-height: 2900px;
+        padding: 20px;
+      }
+
+      .post {
+        width: 180px;
+      }
+
+      .post img {
+        height: 150px;
+      }
+
+      .post1 {
+        top: 40px;
+        left: 8%;
+      }
+
+      .post2 {
+        top: 300px;
+        left: 45%;
+      }
+
+      .post3 {
+        top: 560px;
+        left: 10%;
+      }
+
+      .post4 {
+        top: 820px;
+        left: 45%;
+      }
+
+      .post5 {
+        top: 1080px;
+        left: 10%;
+      }
+
+      .post6 {
+        top: 1340px;
+        left: 45%;
+      }
+
+      .post7 {
+        top: 1600px;
+        left: 10%;
+      }
+
+      .post8 {
+        top: 1860px;
+        left: 45%;
+      }
+
+      .post9 {
+        top: 2120px;
+        left: 10%;
+      }
+
+      .post10 {
+        top: 2380px;
+        left: 45%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <h1>D.I.R.T / E.V.E.N.T</h1>
+    <p>hero dirt found here</p>
+  </header>
+
+
+  <!-- =========================
+       BULLETIN BOARD
+  ========================== -->
+
+  <main class="board">
+
+
+    <!-- =========================
+         POST 1 - GRIT FEST
+    ========================== -->
+
+    <a
+      class="post post1"
+      href="https://allbikeswelcome.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/images.jpg"
+        alt="GRiT FEST"
+      >
+
+      <div class="caption">
+        Grit Fest is a 3-day MTB festival for Trans men & women,
+        cis women, & non-binary riders.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 2 - OORC
+    ========================== -->
+
+    <a
+      class="post post2"
+      href="https://oorc.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/oorc-e1676395890479.png"
+        alt="OORC"
+      >
+
+      <div class="caption">
+        To Advocate for, Build, Maintain and Preserve sustainable
+        multi-use soft surface trails in the Arkansas Ozarks
+        and Arkansas River Valley.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 3 - IMBA
+    ========================== -->
+
+    <a
+      class="post post3"
+      href="https://www.imba.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/Screenshot 2026-07-13 at 9.09.45 AM.png"
+        alt="IMBA"
+      >
+
+      <div class="caption">
+        We create, enhance, and protect great places to ride
+        mountain bikes. Our focus is on trails close to home.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 4 - NICA
+    ========================== -->
+
+    <a
+      class="post post4"
+      href="https://nationalmtb.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/images.png"
+        alt="NICA"
+      >
+
+      <div class="caption">
+        The National Interscholastic Cycling Association (NICA)
+        started in Berkeley, California, USA in 2009.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 5 - WOMEN OF OZ
+    ========================== -->
+
+    <a
+      class="post post5"
+      href="https://woznwa.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/Women of OZ.jpg"
+        alt="Women of OZ"
+      >
+
+      <div class="caption">
+        We believe that mountain biking is more than just a sport;
+        it’s a gateway to adventure, self-discovery, and friendship.
+        Our mission is to break down barriers that may prevent women
+        from enjoying this amazing sport and community of women riders.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 6 - TRAILBLAZERS
+    ========================== -->
+
+    <a
+      class="post post6"
+      href="https://wearetrailblazers.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/Trailblazers.png"
+        alt="Trailblazers"
+      >
+
+      <div class="caption">
+        We lead the development of an innovative regional movement
+        that places cycling, trails, and active transportation
+        infrastructure at the heart of a vibrant, healthy,
+        and sustainable culture.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 7 - FAST
+    ========================== -->
+
+    <a
+      class="post post7"
+      href="https://fasttrails.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/FAST.png"
+        alt="NWA mountain bike trails"
+      >
+
+      <div class="caption">
+        FAST and the Northwest Arkansas Offroad Trail System are
+        working together to elevate Arkansas mountain biking,
+        focusing on creating a fun and family-friendly atmosphere.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 8 - CATA
+    ========================== -->
+
+    <a
+      class="post post8"
+      href="https://www.centralartrail.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/CATA.png"
+        alt="Mountain bike race"
+      >
+
+      <div class="caption">
+        The Central Arkansas Trail Alliance (CATA) is a 501(c)3
+        non-profit headquartered in Little Rock, Arkansas.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 9 - OZASA
+    ========================== -->
+
+    <a
+      class="post post9"
+      href="https://www.ozasa.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/OASA.png"
+        alt="Mountain biking community"
+      >
+
+      <div class="caption">
+        Founded in 2019, Ozark Adaptive Sports Association (OZASA)
+        is a 501(c)(3) nonprofit organization dedicated to empowering
+        individuals with physical disabilities in the Greater
+        Northwest Arkansas area.
+      </div>
+    </a>
+
+
+    <!-- =========================
+         POST 10 - TRAIL ANNOUNCEMENT
+    ========================== -->
+
+    <a
+      class="post post10"
+      href="https://YOUR-WEBSITE-HERE.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="pin"></div>
+
+      <img
+        src="images/image10.jpg"
+        alt="Trail announcement"
+      >
+
+      <div class="caption">
+        Trail Announcement — New rides, trail updates,
+        community news, and everything happening on dirt.
+      </div>
+    </a>
+
+
+  </main>
+
+</body>
+</html>
